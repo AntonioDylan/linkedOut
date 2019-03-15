@@ -1,5 +1,5 @@
 <?php
-class Entreprise extends DBConnection {
+class Entreprise{
 
 private $idEntreprise;
 private $nom;

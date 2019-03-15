@@ -1,5 +1,5 @@
 <?php
-class Recherche extends DBConnection {
+class Recherche {
 
 private $idRecherche;
 private $domaine;
