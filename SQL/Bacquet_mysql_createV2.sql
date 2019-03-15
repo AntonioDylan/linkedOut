@@ -1,5 +1,5 @@
 
-CREATE OR REPLACE DATABASE LinkedOut;
+CREATE  DATABASE LinkedOut;
 
 
 CREATE TABLE `Personne` (
