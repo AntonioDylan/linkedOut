@@ -1,5 +1,5 @@
 <?php
-class Annonce extends DBConnection {
+class Annonce {
 
 private $id;
 private $titre;
@@ -12,7 +12,7 @@ private $idRecruteur;
 private $idEntreprise;
 
 
-function __construct(){
+function __construct($id,$titre,$description,$poste,$date,$typeEmploi,$niveauEtude, $idRecruteur, $idEntreprise){
     $this->id = $id;
     $this->titre = $titre;
     $this->description = $description;

@@ -1,19 +1,19 @@
 <?php
-class Etudiant extends DBConnection {
+class Etudiant extends Personne {
 
 private $idEtudiant;
-private $idPersonne;
 private $lienCV;
 private $linkedin;
 private $twitter;
 
 
-function __construct(){
-    $this.idEtudiant = $idEtudiant;
-    $this.nom = $idPersonne;
-    $this.ville = $lienCV;
-    $this.lienPhoto = $linkedin;
-    $this.twitter = $twitter;
+function __construct($idEtudiant,$lienCV,$linkedin,$twitter, $idPersonne, $nom,$prenom,$description,$telephone,$mail,$mdp){
+    $this->idEtudiant = $idEtudiant;
+    $this->lienCV = $lienCV;
+    $this->linkedin = $linkedin;
+    $this->twitter = $twitter;
+
+    super($idPersonne, $nom,$prenom,$description,$telephone,$mail,$mdp);
 }
 
 }

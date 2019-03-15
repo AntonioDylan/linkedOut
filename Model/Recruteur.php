@@ -1,13 +1,12 @@
 <?php
-class Competence extends DBConnection {
+class Recruteur extends Personne {
 
 private $idRecruteur;
-private $idPersonne;
 
 
-function __construct(){
+function __construct($idRecruteur, $idPersonne, $nom,$prenom,$description,$telephone,$mail,$mdp){
     $this->idRecruteur = $idRecruteur;
-    $this->idPersonne = $idPersonne;
+    super($idPersonne, $nom,$prenom,$description,$telephone,$mail,$mdp);
 }
 
 }
