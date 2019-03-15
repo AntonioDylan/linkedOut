@@ -1,3 +1,7 @@
+
+CREATE OR REPLACE DATABASE LinkedOut;
+
+
 CREATE TABLE `Personne` (
 	`idPersonne` INT(10) NOT NULL AUTO_INCREMENT,
 	`nom` varchar(50) NOT NULL,
@@ -9,14 +13,14 @@ CREATE TABLE `Personne` (
 	PRIMARY KEY (`idPersonne`)
 );
 
-CREATE TABLE `Recruteur` (
+CREATE  TABLE `Recruteur` (
 	`idRecruteur` INT(10) NOT NULL AUTO_INCREMENT,
 	`idPersonne` INT(10) NOT NULL,
 	PRIMARY KEY (`idRecruteur`)
 );
 
-CREATE TABLE `Etudiant` (
-	`idEtudiant` INT NOT NULL AUTO_INCREMENT,
+CREATE  TABLE `Etudiant` (
+	`idEtudiant` INT(10) NOT NULL AUTO_INCREMENT,
 	`idPersonne` INT(10) NOT NULL,
 	`lienCV` TEXT NOT NULL,
 	`linkedIn` TEXT NOT NULL,
@@ -24,8 +28,7 @@ CREATE TABLE `Etudiant` (
 	PRIMARY KEY (`idEtudiant`)
 );
 
-CREATE TABLE `Recherche` (
-	`idRecherche` INT NOT NULL AUTO_INCREMENT,
+CREATE  TABLE `Recherche` (
 	`idRecherche` INT(10) NOT NULL AUTO_INCREMENT,
 	`domaine` varchar(50) NOT NULL,
 	`poste` varchar(50) NOT NULL,
@@ -36,7 +39,7 @@ CREATE TABLE `Recherche` (
 	PRIMARY KEY (`idRecherche`)
 );
 
-CREATE TABLE `Competence` (
+CREATE  TABLE `Competence` (
 	`idCompetence` INT(10) NOT NULL AUTO_INCREMENT,
 	`libelle` varchar(50) NOT NULL,
 	PRIMARY KEY (`idCompetence`)
@@ -53,8 +56,8 @@ CREATE TABLE `Formation` (
 	`idFormation` INT(10) NOT NULL AUTO_INCREMENT,
 	`titre` varchar(50) NOT NULL,
 	`description` TEXT NOT NULL,
-	`niveauEtude` varchar NOT NULL,
-	`lienPhoto` varchar NOT NULL,
+	`niveauEtude` varchar(50) NOT NULL,
+	`lienPhoto` varchar(50) NOT NULL,
 	`idEcole` INT(10) NOT NULL,
 	PRIMARY KEY (`idFormation`)
 );
@@ -88,13 +91,13 @@ CREATE TABLE `Entreprise` (
 	PRIMARY KEY (`idEntreprise`)
 );
 
-CREATE TABLE `RecruteurByEntreprise` (
+CREATE  TABLE `RecruteurByEntreprise` (
 	`idRecruteur` INT(10) NOT NULL,
 	`idEntreprise` INT(10) NOT NULL,
 	PRIMARY KEY (`idRecruteur`,`idEntreprise`)
 );
 
-CREATE TABLE `Annonce` (
+CREATE  TABLE `Annonce` (
 	`idAnnonce` INT(10) NOT NULL AUTO_INCREMENT,
 	`titre` varchar(50) NOT NULL,
 	`description` TEXT NOT NULL,
