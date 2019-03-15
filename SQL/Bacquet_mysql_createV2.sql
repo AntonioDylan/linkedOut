@@ -110,6 +110,12 @@ CREATE  TABLE `Annonce` (
 	PRIMARY KEY (`idAnnonce`)
 );
 
+CREATE  TABLE `Admin` (
+	`idAdmin` INT(10) NOT NULL AUTO_INCREMENT,
+	`login` varchar(50) NOT NULL,
+	`mdp` varchar(500) NOT NULL,
+	PRIMARY KEY (`idAdmin`)
+);
 
 
 ALTER TABLE `Recruteur` ADD CONSTRAINT `Recruteur_fk0` FOREIGN KEY (`idPersonne`) REFERENCES `Personne`(`idPersonne`);
