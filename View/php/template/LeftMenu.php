@@ -1,6 +1,3 @@
-<?php
-    include '../template/Header.php';
-?>
 <link rel="stylesheet" href="../../css/LeftMenu.css">
 <script src="../../js/LeftMenu.js"></script>
 

@@ -1,7 +1,6 @@
 <?php
-
-
-
+  
+    include $_SERVER['DOCUMENT_ROOT'].'/linkedOut/Model/PersonneManager.php';
 
 
 
@@ -13,8 +12,9 @@
  */
 function getUsersInfos()
 {
-    $infosUsersDb = PersonneManager->getAllPersonne();
-
+    $personneManager = new PersonneManager();
+    $infosUsersDb = $personneManager->getAllPersonne();
+    var_dump($infosUsersDb);
     $tableHeader = '<table>
 	                    <thead>
                             <tr>
@@ -26,14 +26,14 @@ function getUsersInfos()
                             </tr>
                         </thead>
                         <tbody>';
-
+    $tableBody= "";
     foreach ($infosUsersDb as $value) {
     $userInfo = '<tr>
-				<td>' . $value['nom'] . '</td>
-				<td>' . $value['prenom'] . '</td>
-				<td>' . $value['email'] . '</td>
-				<td>' . $value['password'] . '</td>
-				<td>' . $value['datenaiss'] . '</td>
+				<td>' . $value->getNom() . '</td>
+				<td>' . $value->getPrenom() . '</td>
+				<td>' . $value->getMail() . '</td>
+				<td>' . $value->getMdp() . '</td>
+				<td>' . $value->getTelephone() . '</td>
             </tr>';
     $tableBody .= $userInfo;
     }

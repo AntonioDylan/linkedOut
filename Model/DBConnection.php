@@ -11,8 +11,8 @@ class DBConnection
     function __construct()
     {
         try {
-            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->db = new PDO("mysql:host=$this->host;dbname=$this->dbname", $this->user, $this->pass);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
 
             echo 'ERROR: ' . $e->getMessage();

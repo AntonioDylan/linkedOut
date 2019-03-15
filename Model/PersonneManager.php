@@ -1,4 +1,6 @@
 <?php 
+    include $_SERVER['DOCUMENT_ROOT'].'/linkedOut/Model/DBConnection.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/linkedOut/Model/Personne.php';
 
 class PersonneManager extends DBConnection
 {
@@ -8,10 +10,10 @@ class PersonneManager extends DBConnection
      *
      * @return void
      */
-    static function getAllPersonne()
+    public  function getAllPersonne()
     {
         $lesPersonnes = array();
-        $query = $db->prepare("SELECT * FROM PERSONNE");
+        $query = $this->db->prepare("SELECT * FROM PERSONNE");
         $query->execute();
         $datas =  $query->fetchAll();
 
@@ -28,7 +30,7 @@ class PersonneManager extends DBConnection
      * @param [integer] $idPersonne
      * @return void
      */
-    static function getUnePersonne($idPersonne)
+    public function getUnePersonne($idPersonne)
     {
         $query = $db->prepare("SELECT * FROM PERSONNE WHERE idPersonne ='?'");
         $query->execute(array("$idPersonne"));
@@ -48,7 +50,7 @@ class PersonneManager extends DBConnection
    * @param [String] $mdp
    * @return void
    */
-    static function insertUnePersonne($nom, $prenom, $description, $telephone, $mail, $mdp)
+    public function insertUnePersonne($nom, $prenom, $description, $telephone, $mail, $mdp)
     {
         $query = $db->prepare("INSERT INTO personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp");
         $query->execute(array("nom" => $nom, "prenom" => $prenom, "description" => $description, $telephone, $mail, $mdp));
@@ -66,7 +68,7 @@ class PersonneManager extends DBConnection
    * @param [String] $mdp
    * @return void
    */
-    static function updateUnePersonne($idPersonne, $nom, $prenom, $description, $telephone, $mail, $mdp)
+    public function updateUnePersonne($idPersonne, $nom, $prenom, $description, $telephone, $mail, $mdp)
     {
         $query = $db->prepare("UPDATE personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp WHERE `idProcessus` =:idProcessus");
         $query->execute(array("nom" => $nom, "prenom" => $prenom, "description" => $description, "telephone" => $telephone, "mail" => $mail, "mdp" => $mdp, "idProcessus" => $idPersonne));
