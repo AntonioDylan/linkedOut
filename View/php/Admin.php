@@ -57,7 +57,7 @@
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email-address" value="<?php if(isset($_COOKIE["member_login"])) { echo $_COOKIE["member_login"]; } ?>" required autofocus>
+                                    <input type="text" id="email_address" class="form-control" name="email-address" value="" required autofocus>
                                 </div>
                             </div>
 
@@ -72,7 +72,7 @@
                                 <div class="col-md-6 offset-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="remember" name="remember"> <?php if(isset($_COOKIE["member_login"])) { ?> checked <?php } ?>  Rester connecté
+                                            <input type="checkbox" id="remember" name="remember">    Rester connecté
                                         </label>
                                     </div>
                                 </div>
@@ -92,12 +92,5 @@
     </div>
 
 </main>
-
-
-
-
-
-
-
 </body>
 </html>
