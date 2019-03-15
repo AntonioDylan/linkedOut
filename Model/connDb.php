@@ -1,24 +1,24 @@
 <?php
-class DBConnection {
+class DBConnection
+{
 
-function DBConnection(){
+    function DBConnection()
+    {
 
-    $host='localhost'; 
-    $dbname='maTable';
-    $user='root';
-    $pass='';
+        $host = 'localhost';
+        $dbname = 'maTable';
+        $user = 'root';
+        $pass = '';
 
-    try {  
-      $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);  
-      $DBH->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );  
+        try {
+            $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+            $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        return $DBH;
+            return $DBH;
+        } catch (PDOException $e) {
+
+            echo 'ERROR: ' . $e->getMessage();
+        }
     }
-    catch(PDOException $e) {  
-
-     echo 'ERROR: ' . $e->getMessage();
-    }   
-
 }
-}
-?>
+ 
