@@ -2,19 +2,18 @@
 class DBConnection
 {
 
-    function DBConnection()
+    function __construct()
     {
 
-        $host = 'localhost';
-        $dbname = 'maTable';
-        $user = 'root';
-        $pass = '';
+       private $host = 'localhost';
+       private $dbname = 'maTable';
+       private $user = 'root';
+       private $pass = '';
+       protected $db;
 
         try {
-            $DBH = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-            $DBH->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            return $DBH;
+            $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
 
             echo 'ERROR: ' . $e->getMessage();
