@@ -7,28 +7,28 @@
 /**
  * function permit get all informations from user and print it in admin table
  *
- * @param [array] $infosUsersDb
- * @return void
+ * 
+ * @return String with the complete user table
  */
 function getUsersInfos()
 {
     $personneManager = new PersonneManager();
     $infosUsersDb = $personneManager->getAllPersonne();
-    var_dump($infosUsersDb);
-    $tableHeader = '<table>
+    $tableHeader = '<table class="table">
 	                    <thead>
                             <tr>
-                                <th>nom</th>
-                                <th>prenom</th> 
-                                <th>login</th>
-                                <th>mdp</th>
-                                <th>date naissance</th>
+                                <th scope="col">nom</th>
+                                <th scope="col">prenom</th> 
+                                <th scope="col">login</th>
+                                <th scope="col">mdp</th>
+                                <th scope="col">telephone</th>
                             </tr>
                         </thead>
                         <tbody>';
     $tableBody= "";
     foreach ($infosUsersDb as $value) {
     $userInfo = '<tr>
+                
 				<td>' . $value->getNom() . '</td>
 				<td>' . $value->getPrenom() . '</td>
 				<td>' . $value->getMail() . '</td>

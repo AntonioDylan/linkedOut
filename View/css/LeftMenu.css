@@ -60,11 +60,12 @@ body {
 }
 
 .jquery-accordion-menu {
-    min-width: 260px;
-    max-width: 300px;
+    width: 20%;
+    height: -webkit-fill-available;
     float: left;
     position: relative;
-    box-shadow: 0 20px 50px #333
+    box-shadow: 0 0px 20px #333;
+    background-color: #414956;
 }
 
 .jquery-accordion-menu .jquery-accordion-menu-footer,
