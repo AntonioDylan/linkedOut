@@ -4,9 +4,8 @@
 <link rel="stylesheet" href="../../css/LeftMenu.css">
 <script src="../../js/LeftMenu.js"></script>
 
-<div class="content">
+<!-- <div class="content"> -->
     <div id="jquery-accordion-menu" class="jquery-accordion-menu">
-        <div class="jquery-accordion-menu-header">Header </div>
         <ul>
             <li class="active"><a href="#"><i class="fa fa-home"></i>Home </a></li>
             <li><a href="#"><i class="fa fa-glass"></i>Events </a></li>
@@ -39,6 +38,5 @@
             <li><a href="#"><i class="fa fa-user"></i>About </a></li>
             <li><a href="#"><i class="fa fa-envelope"></i>Contact </a></li>
         </ul>
-        <div class="jquery-accordion-menu-footer">Footer </div>
     </div>
-</div> 
+<!-- </div>  -->
