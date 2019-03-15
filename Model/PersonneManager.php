@@ -32,8 +32,8 @@ class PersonneManager extends DBConnection
      */
     public function getUnePersonne($idPersonne)
     {
-        $query = $db->prepare("SELECT * FROM PERSONNE WHERE idPersonne ='?'");
-        $query->execute(array("$idPersonne"));
+        $query = $db->prepare("SELECT * FROM PERSONNE WHERE idPersonne =':idPersonne'");
+        $query->execute(array("idPersonne"=>$idPersonne));
         $data = $query->fetch();
         $unePersonne = new Personne($data["idPersonne"], $data["nom"], $data["prenom"], $data["description"], $data["telephone"], $data["mail"], $data["mdp"]);
         return $unePersonne;
