@@ -8,7 +8,7 @@ class PersonneManager extends DBConnection
      *
      * @return void
      */
-    function getAllPersonne()
+    static function getAllPersonne()
     {
         $lesPersonnes = array();
         $query = $db->prepare("SELECT * FROM PERSONNE");
@@ -28,16 +28,16 @@ class PersonneManager extends DBConnection
      * @param [integer] $idPersonne
      * @return void
      */
-    function getUnePersonne($idPersonne)
+    static function getUnePersonne($idPersonne)
     {
         $query = $db->prepare("SELECT * FROM PERSONNE WHERE idPersonne ='?'");
-        $query->execute(array("$idPersonne"));              
+        $query->execute(array("$idPersonne"));
         $data = $query->fetch();
         $unePersonne = new Personne($data["idPersonne"], $data["nom"], $data["prenom"], $data["description"], $data["telephone"], $data["mail"], $data["mdp"]);
         return $unePersonne;
     }
 
-  /**
+    /**
    * Ajoute une Personne avec les informations donnés en paramètres
    *
    * @param [String] $nom
@@ -48,11 +48,11 @@ class PersonneManager extends DBConnection
    * @param [String] $mdp
    * @return void
    */
-  function insertUnePersonne($nom, $prenom, $description, $telephone, $mail, $mdp)
-  {
-    $query = $db->prepare("INSERT INTO personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp");
-    $query->execute(array("nom"=>$nom, "prenom"=>$prenom, "description"=>$description, $telephone, $mail, $mdp)); 
-  }
+    static function insertUnePersonne($nom, $prenom, $description, $telephone, $mail, $mdp)
+    {
+        $query = $db->prepare("INSERT INTO personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp");
+        $query->execute(array("nom" => $nom, "prenom" => $prenom, "description" => $description, $telephone, $mail, $mdp));
+    }
 
 
     /**
@@ -66,11 +66,9 @@ class PersonneManager extends DBConnection
    * @param [String] $mdp
    * @return void
    */
-  function updateUnePersonne($idPersonne,$nom, $prenom, $description, $telephone, $mail, $mdp)
-  {
-    $query = $db->prepare("UPDATE personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp WHERE `idProcessus` =:idProcessus");
-    $query->execute(array("nom"=>$nom, "prenom"=>$prenom, "description"=>$description, "telephone"=>$telephone, "mail"=>$mail, "mdp"=>$mdp,"idProcessus"=>$idPersonne)); 
-  }
-
+    static function updateUnePersonne($idPersonne, $nom, $prenom, $description, $telephone, $mail, $mdp)
+    {
+        $query = $db->prepare("UPDATE personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp WHERE `idProcessus` =:idProcessus");
+        $query->execute(array("nom" => $nom, "prenom" => $prenom, "description" => $description, "telephone" => $telephone, "mail" => $mail, "mdp" => $mdp, "idProcessus" => $idPersonne));
+    }
 }
-
