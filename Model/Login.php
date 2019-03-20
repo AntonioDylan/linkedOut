@@ -1,5 +1,5 @@
 <?php
-class UserManager extends DBConnection {
+class Login extends DBConnection {
 
 function __construct(){}
 

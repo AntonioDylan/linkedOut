@@ -32,11 +32,11 @@
                 <div class="card">
                     <div class="card-header">Connexion</div>
                     <div class="card-body">
-                        <form action="" method="">
+                        <form action="../Controller/Login.php" method="POST">
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email-address" value="<?php if(isset($_COOKIE["member_login"])) { echo $_COOKIE["member_login"]; } ?>" required autofocus>
+                                    <input type="text" id="email" class="form-control" name="email" value="<?php if(isset($_COOKIE["member_login"])) { echo $_COOKIE["member_login"]; } ?>" required autofocus>
                                 </div>
                             </div>
 
