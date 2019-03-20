@@ -2,3 +2,11 @@
     width: 80% ;
     float: left;
 }
+
+.fa-edit:hover{
+    cursor: pointer;
+}
+
+.fa-trash-alt:hover{
+    cursor: pointer;
+}
