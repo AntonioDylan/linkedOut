@@ -1,9 +1,12 @@
 <?php
+
+include $_SERVER['DOCUMENT_ROOT'] . '/linkedOut/Model/DBConnection.php';
+
 class Login extends DBConnection {
 
 function __construct(){}
 
-function testConnectionPublic($email, $mdp)
+function testConnexionPublic($email, $mdp)
 {
     $query = "SELECT * FROM personne natural join recruteur where mail = '$email' AND mdp = '$mdp'";
     $rep = $db->prepare($query);
