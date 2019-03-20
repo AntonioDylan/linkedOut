@@ -35,8 +35,9 @@ function getUsersInfos()
 				<td>' . $value->getMail() . '</td>
 				<td>' . $value->getMdp() . '</td>
                 <td>' . $value->getTelephone() . '</td>
-                <td><i class="far fa-edit" id="'.$userId.'" onclick="" ></i></td>
-                <td><i class="far fa-trash-alt" id="'. $userId .'" onclick="" ></i></td>
+                <td><i class="far fa-edit" id="'.$userId.'" onclick="" ></i>
+                    <i class="far fa-trash-alt" id="'. $userId .'" onclick="" ></i>
+                </td>
             </tr>';
     $tableBody .= $userInfo;
     }

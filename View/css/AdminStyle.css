@@ -3,6 +3,10 @@
     float: left;
 }
 
+.fa-edit{
+    margin-right:25%;
+}
+
 .fa-edit:hover{
     cursor: pointer;
 }
