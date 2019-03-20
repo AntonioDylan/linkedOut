@@ -11,11 +11,9 @@
 
     <!-- Fonts Awesome-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <?php $_SERVER['DOCUMENT_ROOT'].'/linkedOut/View//css/login.css' ?>
 
-    <link rel="stylesheet" href="./css/login.css">
-
-    <link rel="icon" href="Favicon.png">
-
+    <link rel="icon" type="image/jpg" href="https://i.ibb.co/qpjb3vb/t-l-chargement.jpg">
     <!-- Bootstrap CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 
