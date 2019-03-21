@@ -20,7 +20,6 @@
                     <a class="nav-link" href="#">S'enregistrer</a>
                 </li>
             </ul>
-
         </div>
     </div>
 </nav>

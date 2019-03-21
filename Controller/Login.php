@@ -11,8 +11,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     $testvar = $login->testConnexionPublic($email, $password);
     $_SESSION = $testvar ;
-     var_dump($_SESSION);
-     exit();
+    
     if($testvar == false){
         header('http://localhost/linkedOut/View/php/pages/login.php');
         exit(); 
