@@ -10,15 +10,18 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $login = new Login();
 
     $testvar = $login->testConnexionPublic($email, $password);
-    var_dump($testvar);
-    echo("issou");
-    if(isset($testvar['idAdmin'])){
-        header('Location: http://localhost/linkedOut/View/php/pages/admin.php');
-    } else if(isset($testvar['idPersonne'])){
-        header('Location: http://bazoocam.com');
-    }
-    else {
+    $_SESSION = $testvar ;
+     var_dump($_SESSION);
+     exit();
+    if($testvar == false){
         header('http://localhost/linkedOut/View/php/pages/login.php');
+        exit(); 
+    }else  if(isset($testvar['idAdmin'])){
+        header('Location: http://localhost/linkedOut/View/php/pages/admin.php');
+        exit();
+    } else if(isset($testvar['idPersonne'])){
+        header('Location: http://localhost/linkedOut/View/php/pages/accueil.php');
+        exit(); 
     }
 }
 
