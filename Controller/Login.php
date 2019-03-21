@@ -8,14 +8,17 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $password = $_POST['password'];
 
     $login = new Login();
-
-    $testvar = $login->testConnexionPublic($email, $password);
-    $_SESSION = $testvar ;
-    
-    if($testvar == false){
+    $loginSession = $login->testConnexionPublic($email, $password);
+    if(empty($loginSession)) {
+        $_SESSION = $testvar ;
+        $_SESSION['islog'] = true;
+    }
+    else {
         header('http://localhost/linkedOut/View/php/pages/login.php');
         exit(); 
-    }else  if(isset($testvar['idAdmin'])){
+    }
+    
+    if(isset($testvar['idAdmin'])){
         header('Location: http://localhost/linkedOut/View/php/pages/admin.php');
         exit();
     } else if(isset($testvar['idPersonne'])){
