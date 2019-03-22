@@ -13,7 +13,7 @@ class PersonneManager extends DBConnection
     public  function getAllPersonne()
     {
         $lesPersonnes = array();
-        $query = $this->db->prepare("SELECT * FROM PERSONNE");
+        $query = $this->db->prepare("SELECT * FROM Personne");
         $query->execute();
         $datas =  $query->fetchAll();
 
@@ -32,7 +32,7 @@ class PersonneManager extends DBConnection
      */
     public function getUnePersonne($idPersonne)
     {
-        $query = $db->prepare("SELECT * FROM PERSONNE WHERE idPersonne =':idPersonne'");
+        $query = $db->prepare("SELECT * FROM Personne WHERE idPersonne =':idPersonne'");
         $query->execute(array("idPersonne"=>$idPersonne));
         $data = $query->fetch();
         $unePersonne = new Personne($data["idPersonne"], $data["nom"], $data["prenom"], $data["description"], $data["telephone"], $data["mail"], $data["mdp"]);
@@ -72,5 +72,12 @@ class PersonneManager extends DBConnection
     {
         $query = $db->prepare("UPDATE personne set `nom` = :nom ,`prenom` = :prenom,`description` = :description,`telephone` = :telephone,`mail` = :mail,`mdp` = :mdp WHERE `idProcessus` =:idProcessus");
         $query->execute(array("nom" => $nom, "prenom" => $prenom, "description" => $description, "telephone" => $telephone, "mail" => $mail, "mdp" => $mdp, "idProcessus" => $idPersonne));
+    }
+
+    public function getLastid(){
+        $query = $this->db->prepare("SELECT MAX(idPersonne) as lastId FROM Personne");
+        $query->execute();
+        $data =  $query->fetch();
+        return $data["lastId"];
     }
 }

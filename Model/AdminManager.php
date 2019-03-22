@@ -19,7 +19,7 @@ class AdminManager extends DBConnection
 
         foreach ($datas as $data) {
             $unAdmin = new Admin($data["id"], $data["login"],$data["password"]);
-            array_push($lesAdmins, $uneAdmin);
+            array_push($lesAdmins, $unAdmin);
         }
         return $lesAdmins;
     }
@@ -30,13 +30,14 @@ class AdminManager extends DBConnection
      * @param [integer] $id
      * @return $uneAdmin
      */
-    public function getUneAdmin($id)
+    public function getUnAdmin($id)
     {
-        $query = $db->prepare("SELECT * FROM Admin WHERE id =':idAdmin'");
-        $query->execute(array("idAdmin" => $id));
+        $query = $this->db->prepare("SELECT * FROM Admin WHERE id =':idAdmin'");
+        $query->bindValue(":idAdmin",$id);
+        $query->execute();
         $data = $query->fetch();
         $unAdmin = new Admin($data["id"], $data["login"],$data["password"]);
-        return $uneAdmin;
+        return $unAdmin;
     }
 
     /**
@@ -46,10 +47,12 @@ class AdminManager extends DBConnection
    * @param [String] $prenom  
    * @return void
    */
-    public function insertUneAdmin($libelle)
+    public function insertUnAdmin($libelle,$mdp)
     {
-        $query = $db->prepare("INSERT INTO Admin set `login` = :login");
-        $query->execute(array("login" => $libelle,"libelle" => $libelle,));
+        $query = $this->db->prepare("INSERT INTO Admin set `login` = :login,`mdp` =:mdp");
+        $query->bindValue(":login",$libelle);
+        $query->bindValue(":mdp",$mdp); 
+        $query->execute();
     }
 
 
@@ -61,9 +64,12 @@ class AdminManager extends DBConnection
    * @param [String] $libelle
    * @return void
    */
-    public function updateUneAdmin($libelle)
+    public function updateUnAdmin($id,$libelle,$mdp)
     {
-        $query = $db->prepare("UPDATE Admin set  `libelle` = :libelle WHERE `idProcessus` =:idProcessus");
-        $query->execute(array("libelle" => $libelle));
+        $query = $this->db->prepare("UPDATE Admin set `login` = :login,`mdp` =:mdp WHERE `idAdmin` =:id");
+        $query->bindValue(":id",$id);
+        $query->bindValue(":login",$libelle);
+        $query->bindValue(":mdp",$mdp); 
+        $query->execute();
     }
 }

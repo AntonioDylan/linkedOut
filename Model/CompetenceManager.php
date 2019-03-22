@@ -32,8 +32,9 @@ class CompetenceManager extends DBConnection
      */
     public function getUneCompetence($idCompetence)
     {
-        $query = $db->prepare("SELECT * FROM Competence WHERE idCompetence =':idCompetence'");
-        $query->execute(array("idCompetence" => $idCompetence));
+        $query = $this->db->prepare("SELECT * FROM Competence WHERE idCompetence =':idCompetence'");
+        $query->bindValue(":idCompetence",$idCompetence);
+        $query->execute();
         $data = $query->fetch();
         $uneCompetence = new Competence($data["idCompetence"], $data["libelle"]);
         return $uneCompetence;
@@ -52,8 +53,9 @@ class CompetenceManager extends DBConnection
    */
     public function insertUneCompetence($libelle)
     {
-        $query = $db->prepare("INSERT INTO Competence set `libelle` = :libelle");
-        $query->execute(array("libelle" => $libelle));
+        $query = $this->db->prepare("INSERT INTO Competence set `libelle` = :libelle");
+        $query->bindValue(":libelle",$libelle); 
+        $query->execute();
     }
 
 
@@ -67,7 +69,8 @@ class CompetenceManager extends DBConnection
    */
     public function updateUneCompetence($libelle)
     {
-        $query = $db->prepare("UPDATE Competence set  `libelle` = :libelle WHERE `idProcessus` =:idProcessus");
-        $query->execute(array("libelle" => $libelle));
+        $query = $this->db->prepare("UPDATE Competence set `libelle` = :libelle");
+        $query->bindValue(":libelle",$libelle); 
+        $query->execute();
     }
 }
