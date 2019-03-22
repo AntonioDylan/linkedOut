@@ -9,19 +9,20 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 
     $login = new Login();
     $loginSession = $login->testConnexionPublic($email, $password);
-    if(empty($loginSession)) {
-        $_SESSION = $testvar ;
+    
+    if($loginSession != NULL) {
+        $_SESSION = $loginSession;
         $_SESSION['islog'] = true;
     }
     else {
-        header('http://localhost/linkedOut/View/php/pages/login.php');
+        header('Location: http://localhost/linkedOut/View/php/pages/login.php');
         exit(); 
     }
-    
-    if(isset($testvar['idAdmin'])){
+    var_dump($_SESSION);
+    if(isset($loginSession['idAdmin'])){
         header('Location: http://localhost/linkedOut/View/php/pages/admin.php');
         exit();
-    } else if(isset($testvar['idPersonne'])){
+    } else if(isset($loginSession['idPersonne'])){
         header('Location: http://localhost/linkedOut/View/php/pages/accueil.php');
         exit(); 
     }
