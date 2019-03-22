@@ -70,23 +70,23 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox" id="remember" name="remember"> <?php if(isset($_COOKIE["member_login"])) { ?> checked <?php } ?>  Rester connecté
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+              
 
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     Se connecter
                                 </button>
+                                <!--
                                 <a href="#" class="btn btn-link">
                                     Mot de passe oublié ?
                                 </a>
+                                -->
+
+                                <?php if(isset($_GET['etat'])) 
+                                    echo "<div style='margin-top:10px;' class='alert alert-danger' role='alert'>
+                                    Email ou mot de passe incorrect
+                                  </div>"
+                                ?>
                             </div>
                     </div>
                     </form>

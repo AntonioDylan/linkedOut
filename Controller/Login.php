@@ -15,10 +15,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
         $_SESSION['islog'] = true;
     }
     else {
-        header('Location: http://localhost/linkedOut/View/php/pages/login.php');
+        header('Location: http://localhost/linkedOut/View/php/pages/login.php?etat=ko');
         exit(); 
-    }
-    var_dump($_SESSION);
+    }   
     if(isset($loginSession['idAdmin'])){
         header('Location: http://localhost/linkedOut/View/php/pages/admin.php');
         exit();
