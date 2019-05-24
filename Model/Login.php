@@ -1,10 +1,10 @@
 <?php
 
-include $_SERVER['DOCUMENT_ROOT'] . '/linkedOut/Model/DBConnection.php';
-
+include $_SERVER['DOCUMENT_ROOT'] . '/Model/DBConnection.php';
 class Login extends DBConnection
 {
-
+    
+   
     function testConnexionPublic($email, $mdp)
     {
         $rep = $this->db->prepare('SELECT * FROM personne natural join recruteur where mail = :email AND mdp = :mdp');

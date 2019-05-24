@@ -1,6 +1,6 @@
 <?php
   
-    include $_SERVER['DOCUMENT_ROOT'].'/linkedOut/Model/PersonneManager.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/Model/PersonneManager.php';
     
 
 
